@@ -36,6 +36,7 @@
             this.subtraction = new System.Windows.Forms.Button();
             this.multiplication = new System.Windows.Forms.Button();
             this.division = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // additional
@@ -52,7 +53,7 @@
             this.additional.Text = "+";
             this.additional.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.additional.UseVisualStyleBackColor = false;
-            this.additional.Click += new System.EventHandler(this.additional_Click);
+            this.additional.Click += new System.EventHandler(this.OperationClick);
             // 
             // first
             // 
@@ -111,7 +112,7 @@
             this.subtraction.Text = "-";
             this.subtraction.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.subtraction.UseVisualStyleBackColor = false;
-            this.subtraction.Click += new System.EventHandler(this.subtraction_Click);
+            this.subtraction.Click += new System.EventHandler(this.OperationClick);
             // 
             // multiplication
             // 
@@ -127,7 +128,7 @@
             this.multiplication.Text = "*";
             this.multiplication.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.multiplication.UseVisualStyleBackColor = false;
-            this.multiplication.Click += new System.EventHandler(this.multiplication_Click);
+            this.multiplication.Click += new System.EventHandler(this.OperationClick);
             // 
             // division
             // 
@@ -144,7 +145,21 @@
             this.division.Text = "/";
             this.division.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.division.UseVisualStyleBackColor = false;
-            this.division.Click += new System.EventHandler(this.division_Click);
+            this.division.Click += new System.EventHandler(this.OperationClick);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.textBox1.Location = new System.Drawing.Point(232, 21);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(88, 22);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Result";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // Form1
             // 
@@ -152,6 +167,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(333, 418);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.division);
             this.Controls.Add(this.multiplication);
             this.Controls.Add(this.subtraction);
@@ -179,6 +195,7 @@
         private System.Windows.Forms.Button subtraction;
         private System.Windows.Forms.Button multiplication;
         private System.Windows.Forms.Button division;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

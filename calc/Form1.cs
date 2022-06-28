@@ -24,35 +24,45 @@ namespace calc
 
         }
 
-        private void additional_Click(object sender, EventArgs e)
+        private void OperationClick(object sender, EventArgs e)
         {
-            a = Convert.ToDouble(first.Text);
-            b = Convert.ToDouble(second.Text);
-            result.Text = Convert.ToString(a + b);
-        }
-
-        private void subtraction_Click(object sender, EventArgs e)
-        {
-            a = Convert.ToDouble(first.Text);
-            b = Convert.ToDouble(second.Text);
-            result.Text = Convert.ToString(a - b);
-        }
-
-        private void multiplication_Click(object sender, EventArgs e)
-        {
-            a = Convert.ToDouble(first.Text);
-            b = Convert.ToDouble(second.Text);
-            result.Text = Convert.ToString(a - b);
-        }
-
-        private void division_Click(object sender, EventArgs e)
-        {
-            a = Convert.ToDouble(first.Text);
-            b = Convert.ToDouble(second.Text);
-            result.Text = Convert.ToString(a / b);
+            try
+            {
+               a = Convert.ToDouble(first.Text);
+               b = Convert.ToDouble(second.Text);
+            }
+            catch (FormatException)
+            {
+                result.Text = "Err";
+                first.Text = "";
+                second.Text = "";
+                return;
+            }
+            switch (((Button)sender).Name)
+            {
+                case "additional":
+                    result.Text = Convert.ToString(a + b);
+                    break;
+                case "subtraction":
+                    result.Text = Convert.ToString(a - b);
+                    break;
+                case "multiplication":
+                    result.Text = Convert.ToString(a * b);
+                    break;
+                case "division":
+                    result.Text = Convert.ToString(a / b);
+                    break;
+                default:
+                    throw new Exception("Ошибка! Неизвестная операция");
+            }
         }
 
         private void first_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
