@@ -12,7 +12,7 @@ namespace calc
 {
     public partial class Form1 : Form
     {
-        double a, b;
+        private static double a, b;
 
         public Form1()
         {
@@ -26,6 +26,8 @@ namespace calc
 
         private void OperationClick(object sender, EventArgs e)
         {
+            first.Text = first.Text.Replace(".", ",");
+            second.Text = second.Text.Replace(".", ",");
             try
             {
                a = Convert.ToDouble(first.Text);
@@ -57,17 +59,29 @@ namespace calc
             }
         }
 
-        private void first_TextChanged(object sender, EventArgs e)
+        private void First_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void second_TextChanged(object sender, EventArgs e)
+        private void clear_Click(object sender, EventArgs e)
+        {
+            result.Text = "";
+            first.Text = "";
+            second.Text = "";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Second_TextChanged(object sender, EventArgs e)
         {
 
         }
