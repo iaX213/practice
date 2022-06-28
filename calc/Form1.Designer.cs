@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.plus = new System.Windows.Forms.Button();
+            this.additional = new System.Windows.Forms.Button();
             this.first = new System.Windows.Forms.TextBox();
             this.second = new System.Windows.Forms.TextBox();
             this.result = new System.Windows.Forms.TextBox();
-            this.minus = new System.Windows.Forms.Button();
-            this.umn = new System.Windows.Forms.Button();
-            this.del = new System.Windows.Forms.Button();
+            this.subtraction = new System.Windows.Forms.Button();
+            this.multiplication = new System.Windows.Forms.Button();
+            this.division = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // plus
+            // additional
             // 
-            this.plus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.plus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.plus.FlatAppearance.BorderSize = 2;
-            this.plus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plus.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.plus.Location = new System.Drawing.Point(12, 117);
-            this.plus.Name = "plus";
-            this.plus.Size = new System.Drawing.Size(56, 56);
-            this.plus.TabIndex = 0;
-            this.plus.Text = "+";
-            this.plus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.plus.UseVisualStyleBackColor = false;
-            this.plus.Click += new System.EventHandler(this.plus_Click);
+            this.additional.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.additional.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.additional.FlatAppearance.BorderSize = 2;
+            this.additional.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.additional.Font = new System.Drawing.Font("Segoe UI", 21.75F);
+            this.additional.Location = new System.Drawing.Point(12, 117);
+            this.additional.Name = "additional";
+            this.additional.Size = new System.Drawing.Size(56, 56);
+            this.additional.TabIndex = 0;
+            this.additional.Text = "+";
+            this.additional.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.additional.UseVisualStyleBackColor = false;
+            this.additional.Click += new System.EventHandler(this.additional_Click);
             // 
             // first
             // 
@@ -97,54 +97,54 @@
             this.result.TabIndex = 3;
             this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // minus
+            // subtraction
             // 
-            this.minus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.minus.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.minus.FlatAppearance.BorderSize = 2;
-            this.minus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minus.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.minus.Location = new System.Drawing.Point(89, 117);
-            this.minus.Name = "minus";
-            this.minus.Size = new System.Drawing.Size(56, 56);
-            this.minus.TabIndex = 4;
-            this.minus.Text = "-";
-            this.minus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.minus.UseVisualStyleBackColor = false;
-            this.minus.Click += new System.EventHandler(this.minus_Click);
+            this.subtraction.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.subtraction.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.subtraction.FlatAppearance.BorderSize = 2;
+            this.subtraction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.subtraction.Font = new System.Drawing.Font("Segoe UI", 21.75F);
+            this.subtraction.Location = new System.Drawing.Point(89, 117);
+            this.subtraction.Name = "subtraction";
+            this.subtraction.Size = new System.Drawing.Size(56, 56);
+            this.subtraction.TabIndex = 4;
+            this.subtraction.Text = "-";
+            this.subtraction.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.subtraction.UseVisualStyleBackColor = false;
+            this.subtraction.Click += new System.EventHandler(this.subtraction_Click);
             // 
-            // umn
+            // multiplication
             // 
-            this.umn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.umn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.umn.FlatAppearance.BorderSize = 2;
-            this.umn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.umn.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.umn.Location = new System.Drawing.Point(168, 117);
-            this.umn.Name = "umn";
-            this.umn.Size = new System.Drawing.Size(56, 56);
-            this.umn.TabIndex = 5;
-            this.umn.Text = "*";
-            this.umn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.umn.UseVisualStyleBackColor = false;
-            this.umn.Click += new System.EventHandler(this.umn_Click);
+            this.multiplication.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.multiplication.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.multiplication.FlatAppearance.BorderSize = 2;
+            this.multiplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.multiplication.Font = new System.Drawing.Font("Segoe UI", 21.75F);
+            this.multiplication.Location = new System.Drawing.Point(168, 117);
+            this.multiplication.Name = "multiplication";
+            this.multiplication.Size = new System.Drawing.Size(56, 56);
+            this.multiplication.TabIndex = 5;
+            this.multiplication.Text = "*";
+            this.multiplication.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.multiplication.UseVisualStyleBackColor = false;
+            this.multiplication.Click += new System.EventHandler(this.multiplication_Click);
             // 
-            // del
+            // division
             // 
-            this.del.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.del.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.del.FlatAppearance.BorderSize = 2;
-            this.del.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.del.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.del.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.del.Location = new System.Drawing.Point(247, 117);
-            this.del.Name = "del";
-            this.del.Size = new System.Drawing.Size(56, 56);
-            this.del.TabIndex = 6;
-            this.del.Text = "/";
-            this.del.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.del.UseVisualStyleBackColor = false;
-            this.del.Click += new System.EventHandler(this.del_Click);
+            this.division.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.division.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.division.FlatAppearance.BorderSize = 2;
+            this.division.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.division.Font = new System.Drawing.Font("Segoe UI", 21.75F);
+            this.division.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.division.Location = new System.Drawing.Point(247, 117);
+            this.division.Name = "division";
+            this.division.Size = new System.Drawing.Size(56, 56);
+            this.division.TabIndex = 6;
+            this.division.Text = "/";
+            this.division.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.division.UseVisualStyleBackColor = false;
+            this.division.Click += new System.EventHandler(this.division_Click);
             // 
             // Form1
             // 
@@ -152,13 +152,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(44)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(333, 418);
-            this.Controls.Add(this.del);
-            this.Controls.Add(this.umn);
-            this.Controls.Add(this.minus);
+            this.Controls.Add(this.division);
+            this.Controls.Add(this.multiplication);
+            this.Controls.Add(this.subtraction);
             this.Controls.Add(this.result);
             this.Controls.Add(this.second);
             this.Controls.Add(this.first);
-            this.Controls.Add(this.plus);
+            this.Controls.Add(this.additional);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -172,13 +172,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button plus;
+        private System.Windows.Forms.Button additional;
         private System.Windows.Forms.TextBox first;
         private System.Windows.Forms.TextBox second;
         private System.Windows.Forms.TextBox result;
-        private System.Windows.Forms.Button minus;
-        private System.Windows.Forms.Button umn;
-        private System.Windows.Forms.Button del;
+        private System.Windows.Forms.Button subtraction;
+        private System.Windows.Forms.Button multiplication;
+        private System.Windows.Forms.Button division;
     }
 }
 

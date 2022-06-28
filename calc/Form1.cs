@@ -24,28 +24,28 @@ namespace calc
 
         }
 
-        private void plus_Click(object sender, EventArgs e)
+        private void additional_Click(object sender, EventArgs e)
         {
             a = Convert.ToDouble(first.Text);
             b = Convert.ToDouble(second.Text);
             result.Text = Convert.ToString(a + b);
         }
 
-        private void minus_Click(object sender, EventArgs e)
+        private void subtraction_Click(object sender, EventArgs e)
         {
             a = Convert.ToDouble(first.Text);
             b = Convert.ToDouble(second.Text);
             result.Text = Convert.ToString(a - b);
         }
 
-        private void umn_Click(object sender, EventArgs e)
+        private void multiplication_Click(object sender, EventArgs e)
         {
             a = Convert.ToDouble(first.Text);
             b = Convert.ToDouble(second.Text);
             result.Text = Convert.ToString(a - b);
         }
 
-        private void del_Click(object sender, EventArgs e)
+        private void division_Click(object sender, EventArgs e)
         {
             a = Convert.ToDouble(first.Text);
             b = Convert.ToDouble(second.Text);
