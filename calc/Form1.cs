@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace calc
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         private static double a, b;
 
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -59,16 +59,6 @@ namespace calc
             }
         }
 
-        private void First_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void TextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void clear_Click(object sender, EventArgs e)
         {
             result.Text = "";
@@ -77,11 +67,6 @@ namespace calc
         }
 
         private void button5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Second_TextChanged(object sender, EventArgs e)
         {
 
         }
