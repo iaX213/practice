@@ -14,6 +14,7 @@ namespace calc
     {
         private static double a, b;
 
+
         public Main()
         {
             InitializeComponent();
@@ -24,20 +25,26 @@ namespace calc
 
         }
 
-        private void OperationClick(object sender, EventArgs e)
+        private void Operation_Click(object sender, EventArgs e)
         {
             first.Text = first.Text.Replace(".", ",");
             second.Text = second.Text.Replace(".", ",");
             try
             {
-               a = Convert.ToDouble(first.Text);
-               b = Convert.ToDouble(second.Text);
+                if (first.Text != "") a = Convert.ToDouble(first.Text);
+                else a = 0;
+                if (second.Text != "") b = Convert.ToDouble(second.Text);
+                else b = 0;
+                if (a == 0 && b == 0)
+                {
+                    clearscreen();
+                    return;
+                }
             }
             catch (FormatException)
             {
-                result.Text = "Err";
-                first.Text = "";
-                second.Text = "";
+                clearscreen();
+                result.Text = "ERR";
                 return;
             }
             switch (((Button)sender).Name)
@@ -52,23 +59,28 @@ namespace calc
                     result.Text = Convert.ToString(a * b);
                     break;
                 case "division":
-                    result.Text = Convert.ToString(a / b);
+                    if (b == 0)
+                    {
+                        clearscreen();
+                        result.Text = "ERR";
+                    }
+                    else result.Text = Convert.ToString(a / b);
                     break;
                 default:
-                    throw new Exception("Ошибка! Неизвестная операция");
+                    clearscreen();
+                    break;
             }
         }
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            clearscreen();
+        }
 
-        private void clear_Click(object sender, EventArgs e)
+        private void clearscreen()
         {
             result.Text = "";
             first.Text = "";
             second.Text = "";
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
