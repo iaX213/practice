@@ -1,4 +1,5 @@
 ﻿using System;
+using static calc.OneArgCalc;
 
 namespace calc {
     public static class TwoArgsCalc
@@ -25,10 +26,10 @@ namespace calc {
                     Exponentationcalc exp = new Exponentationcalc();
                     return exp.Calculate(x, y);
                 case "logxy":
-                    Logxycalc log = new Logxycalc();
-                    return log.Calculate(x, y);
+                    Logxycalc logxy = new Logxycalc();
+                    return logxy.Calculate(x, y);
                 default:
-                    throw new NotImplementedException("Ошибка! Неизвестное действие");
+                    return OneArgEngine(name);
             }
         }
     }

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static calc.TwoArgsCalc;
-using static calc.TwoArgsInterface;
+using static calc.OneArgCalc;
 
 namespace calc
 {
@@ -21,7 +14,7 @@ namespace calc
             InitializeComponent();
         }
 
-        private void Operation_Click(object sender, EventArgs e)
+        private void TwoArgClick(object sender, EventArgs e)
         {
             string name = ((Button)sender).Name;
 
@@ -43,7 +36,7 @@ namespace calc
 
             if (name == "division")
             {
-                if (x == 0 && y == 0)
+                if (first.Text == "" && second.Text == "")
                 {
                     clearscreen();
                     return;
@@ -57,13 +50,84 @@ namespace calc
             }
             if (name == "logxy")
             {
-                if (x <= 0 || y <= 0 || x == 1)
+                if (first.Text == "" && second.Text == "")
+                {
+                    clearscreen();
+                    return;
+                }
+                else if (x <= 0 || y <= 0 || x == 1)
                 {
                     clearscreen();
                     result.Text = "ERR";
+                    return;
                 }
             } 
             res = TwoArgsEngine(name);
+            result.Text = Convert.ToString(res);
+        }
+
+        private void OneArgClick(object sender, EventArgs e)
+        {
+            string name = ((Button)sender).Name;
+
+            first.Text = first.Text.Replace(".", ",");
+            second.Text = "";
+            try
+            {
+                if (first.Text != "") ox = Convert.ToDouble(first.Text);
+                else ox = 0;
+            }
+            catch (FormatException)
+            {
+                clearscreen();
+                result.Text = "ERR";
+                return;
+            }
+
+            if (name == "ln" || name == "lg")
+            {
+                if (first.Text == "")
+                {
+                    clearscreen();
+                    return;
+                }
+                else if (ox <= 0)
+                {
+                    clearscreen();
+                    result.Text = "ERR";
+                    return;
+                }
+            }
+            if (name == "ctg")
+            {
+                if (first.Text == "")
+                {
+                    clearscreen();
+                    return;
+                }
+                else if (OneArgEngine("sin") == 0)
+                {
+                    clearscreen();
+                    result.Text = "ERR";
+                    return;
+                }
+            }
+            if (name == "tg")
+            {
+                if (first.Text == "")
+                {
+                    clearscreen();
+                    return;
+                }
+                else if (OneArgEngine("cos") == 0)
+                {
+                    clearscreen();
+                    result.Text = "ERR";
+                    return;
+                }
+            }
+
+            res = OneArgEngine(name);
             result.Text = Convert.ToString(res);
         }
 

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace calc
 {
-    public interface ITwoArgsCalc
+    public class Lncalc : IOneArgCalc
     {
-        double Calculate(double x, double y);
+        public double Calculate(double x) { return Math.Log(x); }
     }
 }
