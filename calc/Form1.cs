@@ -35,11 +35,6 @@ namespace calc
                 else a = 0;
                 if (second.Text != "") b = Convert.ToDouble(second.Text);
                 else b = 0;
-                if (a == 0 && b == 0)
-                {
-                    clearscreen();
-                    return;
-                }
             }
             catch (FormatException)
             {
@@ -59,7 +54,7 @@ namespace calc
                     result.Text = Convert.ToString(a * b);
                     break;
                 case "division":
-                    if (b == 0)
+                    if ((b == 0) || (a == 0 && b == 0))
                     {
                         clearscreen();
                         result.Text = "ERR";
