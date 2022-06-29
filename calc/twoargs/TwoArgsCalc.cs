@@ -29,7 +29,7 @@ namespace calc {
                     Logxycalc logxy = new Logxycalc();
                     return logxy.Calculate(x, y);
                 default:
-                    return OneArgEngine(name);
+                    throw new NotImplementedException("Ошибка! Неизвестное действие");
             }
         }
     }
