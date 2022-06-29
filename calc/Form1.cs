@@ -62,7 +62,7 @@ namespace calc
                     return;
                 }
             } 
-            res = TwoArgsEngine(name);
+            res = Math.Round(TwoArgsEngine(name), 4);
             result.Text = Convert.ToString(res);
         }
 
@@ -127,7 +127,7 @@ namespace calc
                 }
             }
 
-            res = OneArgEngine(name);
+            res = Math.Round(OneArgEngine(name), 4);
             result.Text = Convert.ToString(res);
         }
 
@@ -141,6 +141,11 @@ namespace calc
             result.Text = "";
             first.Text = "";
             second.Text = "";
+        }
+
+        private void result_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
