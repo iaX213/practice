@@ -7,34 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static calc.TwoArgsCalc;
+using static calc.TwoArgsInterface;
 
 namespace calc
 {
     public partial class Main : Form
     {
-        private static double a, b;
-
+        public double res;
 
         public Main()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Operation_Click(object sender, EventArgs e)
         {
+            string name = ((Button)sender).Name;
+
             first.Text = first.Text.Replace(".", ",");
             second.Text = second.Text.Replace(".", ",");
             try
             {
-                if (first.Text != "") a = Convert.ToDouble(first.Text);
-                else a = 0;
-                if (second.Text != "") b = Convert.ToDouble(second.Text);
-                else b = 0;
+                if (first.Text != "") x = Convert.ToDouble(first.Text);
+                else x = 0;
+                if (second.Text != "") y = Convert.ToDouble(second.Text);
+                else y = 0;
             }
             catch (FormatException)
             {
@@ -42,30 +40,33 @@ namespace calc
                 result.Text = "ERR";
                 return;
             }
-            switch (((Button)sender).Name)
+
+            if (name == "division")
             {
-                case "additional":
-                    result.Text = Convert.ToString(a + b);
-                    break;
-                case "subtraction":
-                    result.Text = Convert.ToString(a - b);
-                    break;
-                case "multiplication":
-                    result.Text = Convert.ToString(a * b);
-                    break;
-                case "division":
-                    if ((b == 0) || (a == 0 && b == 0))
-                    {
-                        clearscreen();
-                        result.Text = "ERR";
-                    }
-                    else result.Text = Convert.ToString(a / b);
-                    break;
-                default:
+                if (x == 0 && y == 0)
+                {
                     clearscreen();
-                    break;
+                    return;
+                }
+                else if (y == 0)
+                {
+                    clearscreen();
+                    result.Text = "ERR";
+                    return;
+                }
             }
+            if (name == "logxy")
+            {
+                if (x <= 0 || y <= 0 || x == 1)
+                {
+                    clearscreen();
+                    result.Text = "ERR";
+                }
+            } 
+            res = TwoArgsEngine(name);
+            result.Text = Convert.ToString(res);
         }
+
         private void Clear_Click(object sender, EventArgs e)
         {
             clearscreen();

@@ -54,6 +54,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TwoArgsInterface.cs" />
+    <Compile Include="twoargs\TwoArgsCalc.cs" />
+    <Compile Include="twoargs\exponentaion.cs" />
+    <Compile Include="twoargs\logxy.cs" />
+    <Compile Include="twoargs\multiplication.cs" />
+    <Compile Include="twoargs\subtraction.cs" />
+    <Compile Include="twoargs\division.cs" />
+    <Compile Include="twoargs\additional.cs" />
+    <Compile Include="twoargs\TwoArgsInterface.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -81,7 +90,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cosx.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

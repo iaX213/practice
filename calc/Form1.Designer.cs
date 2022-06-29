@@ -254,7 +254,7 @@
             this.cos.FlatAppearance.BorderSize = 2;
             this.cos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cos.Font = new System.Drawing.Font("Segoe UI", 21.75F);
-            this.cos.Image = global::calc.Properties.Resources.cosx;
+            this.cos.Image = ((System.Drawing.Image)(resources.GetObject("cos.Image")));
             this.cos.Location = new System.Drawing.Point(89, 358);
             this.cos.Name = "cos";
             this.cos.Size = new System.Drawing.Size(56, 56);
@@ -357,7 +357,6 @@
             this.Name = "Main";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Calculator";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
