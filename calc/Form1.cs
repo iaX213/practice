@@ -142,10 +142,5 @@ namespace calc
             first.Text = "";
             second.Text = "";
         }
-
-        private void result_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

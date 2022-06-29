@@ -2,12 +2,14 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
-using calc;
+using static calc.TwoArgsCalc;
+using static calc.OneArgCalc;
 
 namespace calcWeb.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -21,8 +23,8 @@ namespace calcWeb.Controllers
             {
                new SelectListItem() {  Value = "additional", Text = "Сложение" },
                new SelectListItem() {  Value = "subtraction", Text = "Вычитание" },
-               new SelectListItem() {  Value = "multiplication", Text = "Деление" },
-               new SelectListItem() {  Value = "division", Text = "Умножение" },
+               new SelectListItem() {  Value = "multiplication", Text = "Умножение" },
+               new SelectListItem() {  Value = "division", Text = "Деление" },
                new SelectListItem() {  Value = "exponentation", Text = "Степень" },
                new SelectListItem() {  Value = "logxy", Text = "Логарфим" },
                new SelectListItem() {  Value = "lg", Text = "Десятичный логарифм" },
@@ -36,69 +38,52 @@ namespace calcWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(double x, double y, string operation)
+        public ActionResult Index(string sx, string sy, string operation)
         {
-            double res;
-            switch (operation)
+            double res, x, y;
+            try
             {
-                case "sin":
-                    Sincalc sin = new Sincalc();
-                    res = sin.Calculate(x);
-                    break;
-                case "cos":
-                    Coscalc cos = new Coscalc();
-                    res = cos.Calculate(x);
-                    break;
-                case "tg":
-                    Tgcalc tg = new Tgcalc();
-                    res = tg.Calculate(x);
-                    break;
-                case "ctg":
-                    Tgcalc ctg = new Tgcalc();
-                    res = 1 / ctg.Calculate(x);
-                    break;
-                case "ln":
-                    Lncalc ln = new Lncalc();
-                    res = ln.Calculate(x);
-                    break;
-                case "lg":
-                    Lgcalc lg = new Lgcalc();
-                    res = lg.Calculate(x);
-                    break;
-                case "additional":
-                    Additionalcalc add = new Additionalcalc();
-                    res = add.Calculate(x, y);
-                    break;
-                case "subtraction":
-                    Subtractioncalc sub = new Subtractioncalc();
-                    res = sub.Calculate(x, y);
-                    break;
-                case "multiplication":
-                    Multiplicationcalc mul = new Multiplicationcalc();
-                    res =  mul.Calculate(x, y);
-                    break;
-                case "division":
-                    Divisioncalc div = new Divisioncalc();
-                    res = div.Calculate(x, y);
-                    break;
-                case "exponentation":
-                    Exponentationcalc exp = new Exponentationcalc();
-                    res = exp.Calculate(x, y);
-                    break;
-                case "logxy":
-                    Logxycalc logxy = new Logxycalc();
-                    res = logxy.Calculate(x, y);
-                    break;
-                default:
-                    throw new NotImplementedException("Ошибка! Неизвестное действие");
+                x = Convert.ToDouble(sx);
+                y = Convert.ToDouble(sy);
             }
-            ViewBag.Result = res;
+            catch (FormatException)
+            {
+                ViewBag.Result = "Ошибка!";
+                x = double.PositiveInfinity;
+                y = double.PositiveInfinity; 
+            }
+
+            ox = x;
+            if (
+            (operation == "division" && y == 0) ||
+            (operation == "logxy" && (x <= 0 || y <= 0 || x == 1)) ||
+            ((operation == "ln" || operation == "lg") && x <= 0)
+            ) ViewBag.Result = "Ошибка! Недопустимое значение";
+            else if (operation == "ctg" && OneArgEngine("sin") == 0) ViewBag.Result = "Ошибка! Недопустимое значение";
+            else if (operation == "tg" && OneArgEngine("cos") == 0) ViewBag.Result = "Ошибка! Недопустимое значение";
+            else if (x == double.PositiveInfinity) ViewBag.Result = "Ошибка! Введены неверные данные";
+            else
+            {
+                try
+                {
+                    calc.TwoArgsCalc.x = x;
+                    calc.TwoArgsCalc.y = y;
+                    res = Math.Round(TwoArgsEngine(operation), 4);
+                }
+                catch (Exception)
+                {
+                    ox = x;
+                    res = Math.Round(OneArgEngine(operation), 4);
+                }
+                ViewBag.Result = res;
+            }
+
             ViewBag.Operation = new SelectListItem[]
-           {
+            {
                new SelectListItem() {  Value = "additional", Text = "Сложение" },
                new SelectListItem() {  Value = "subtraction", Text = "Вычитание" },
-               new SelectListItem() {  Value = "multiplication", Text = "Деление" },
-               new SelectListItem() {  Value = "division", Text = "Умножение" },
+               new SelectListItem() {  Value = "multiplication", Text = "Умножение" },
+               new SelectListItem() {  Value = "division", Text = "Деление" },
                new SelectListItem() {  Value = "exponentation", Text = "Степень" },
                new SelectListItem() {  Value = "logxy", Text = "Логарфим" },
                new SelectListItem() {  Value = "lg", Text = "Десятичный логарифм" },
@@ -107,7 +92,7 @@ namespace calcWeb.Controllers
                new SelectListItem() {  Value = "tg", Text = "Тангенс" },
                new SelectListItem() {  Value = "cos", Text = "Косинус" },
                new SelectListItem() {  Value = "sin", Text = "Синус" }
-           };
+            };
             return View();
         }
 

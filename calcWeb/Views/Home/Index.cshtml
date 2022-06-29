@@ -1,7 +1,7 @@
 ﻿@using (Html.BeginForm("Index", "Home", "Post"))
 {
-    <input type="number" name="x" value="0"/>
-    <input type="number" name="y" value="0"/>
+    <input type="text" name="sx" value=""/>
+    <input type="text" name="sy" value=""/>
     <select name="operation">
         @for (int i = 0; i < ViewBag.Operation.Length; i++)
         {

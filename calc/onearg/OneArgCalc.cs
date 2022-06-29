@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace calc
 {
-    internal class OneArgCalc
+    public static class OneArgCalc
     {
         public static double ox;
 
@@ -33,7 +29,7 @@ namespace calc
                     Lgcalc lg = new Lgcalc();
                     return lg.Calculate(ox);
                 default:
-                    throw new NotImplementedException("Ошибка! Неизвестное действие");
+                    throw new Exception("Ошибка! Неизвестное действие");
             }
         }
     }

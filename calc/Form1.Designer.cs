@@ -106,7 +106,6 @@
             this.result.Size = new System.Drawing.Size(94, 39);
             this.result.TabIndex = 3;
             this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.result.TextChanged += new System.EventHandler(this.result_TextChanged);
             // 
             // subtraction
             // 

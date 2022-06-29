@@ -1,5 +1,4 @@
 ﻿using System;
-using static calc.OneArgCalc;
 
 namespace calc {
     public static class TwoArgsCalc
@@ -29,7 +28,7 @@ namespace calc {
                     Logxycalc logxy = new Logxycalc();
                     return logxy.Calculate(x, y);
                 default:
-                    throw new NotImplementedException("Ошибка! Неизвестное действие");
+                    throw new Exception("Ошибка! Неизвестное действие");
             }
         }
     }
