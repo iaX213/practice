@@ -1,15 +1,16 @@
 ﻿@using (Html.BeginForm("Index", "Home", "Post"))
 {
-    <input type="text" name="sx" value=""/>
-    <input type="text" name="sy" value=""/>
-    <select name="operation">
-        @for (int i = 0; i < ViewBag.Operation.Length; i++)
-        {
-            <option value="@ViewBag.Operation[i].Value">
-            @ViewBag.Operation[i].Text
-            </option>
-        }
-    </select>
-    <input type="submit" value="вычислить"/>
-    <p>@ViewBag.Result</p>
+        <input type="text" name="sx" value="@ViewBag.X" style ="margin: 5px; font-size: 18pt; padding: 5px;"/>
+        <input type="text" name="sy" value="@ViewBag.Y" style ="margin: 5px; font-size: 18pt; padding: 5px;"/>
+        <select name="operation" style ="margin: 5px; font-size: 18pt; padding: 5px;">
+            @for (int i = 0; i < ViewBag.Operation.Length; i++)
+            {
+                <option value="@ViewBag.Operation[i].Value">
+                @ViewBag.Operation[i].Text
+                </option>
+            }
+        </select>
+        <input type="text" value="@ViewBag.Result" style ="margin: 5px; font-size: 18pt; padding: 5px; background-color: #A9D3C3;" readonly/>
+        <input type="submit" value="Вычислить" 
+            style = "background-color: #4A4A4A; border-radius: 10px;  color: white; float: right; font-size: 18pt; margin-top: 15px; margin-right: 100px; padding: 5px;"/>
 }

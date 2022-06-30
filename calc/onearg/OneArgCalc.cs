@@ -29,7 +29,7 @@ namespace calc
                     Lgcalc lg = new Lgcalc();
                     return lg.Calculate(ox);
                 default:
-                    throw new Exception("Ошибка! Неизвестное действие");
+                    return double.NegativeInfinity;
             }
         }
     }

@@ -62,7 +62,14 @@ namespace calc
                     return;
                 }
             } 
+
             res = Math.Round(TwoArgsEngine(name), 4);
+            if (res == double.NegativeInfinity)
+            {
+                clearscreen();
+                result.Text = "ERR";
+                return;
+            }
             result.Text = Convert.ToString(res);
         }
 
@@ -126,8 +133,13 @@ namespace calc
                     return;
                 }
             }
-
             res = Math.Round(OneArgEngine(name), 4);
+            if (res == double.NegativeInfinity)
+            {
+                clearscreen();
+                result.Text = "ERR";
+                return;
+            }
             result.Text = Convert.ToString(res);
         }
 

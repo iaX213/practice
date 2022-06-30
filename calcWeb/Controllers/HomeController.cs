@@ -9,7 +9,7 @@ namespace calcWeb.Controllers
 {
     public class HomeController : Controller
     {
-
+        private double formX = 0, formY = 0;
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -34,50 +34,27 @@ namespace calcWeb.Controllers
                new SelectListItem() {  Value = "cos", Text = "Косинус" },
                new SelectListItem() {  Value = "sin", Text = "Синус" }
             };
+            ViewBag.X = "";
+            ViewBag.Y = "";
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(string sx, string sy, string operation)
         {
-            double res, x, y;
             try
             {
-                x = Convert.ToDouble(sx);
-                y = Convert.ToDouble(sy);
+                formX = Convert.ToDouble(sx);
+                formY = Convert.ToDouble(sy);
             }
             catch (FormatException)
             {
                 ViewBag.Result = "Ошибка!";
-                x = double.PositiveInfinity;
-                y = double.PositiveInfinity; 
             }
 
-            ox = x;
-            if (
-            (operation == "division" && y == 0) ||
-            (operation == "logxy" && (x <= 0 || y <= 0 || x == 1)) ||
-            ((operation == "ln" || operation == "lg") && x <= 0)
-            ) ViewBag.Result = "Ошибка! Недопустимое значение";
-            else if (operation == "ctg" && OneArgEngine("sin") == 0) ViewBag.Result = "Ошибка! Недопустимое значение";
-            else if (operation == "tg" && OneArgEngine("cos") == 0) ViewBag.Result = "Ошибка! Недопустимое значение";
-            else if (x == double.PositiveInfinity) ViewBag.Result = "Ошибка! Введены неверные данные";
-            else
-            {
-                try
-                {
-                    calc.TwoArgsCalc.x = x;
-                    calc.TwoArgsCalc.y = y;
-                    res = Math.Round(TwoArgsEngine(operation), 4);
-                }
-                catch (Exception)
-                {
-                    ox = x;
-                    res = Math.Round(OneArgEngine(operation), 4);
-                }
-                ViewBag.Result = res;
-            }
-
+            ViewBag.Result = CalcEngine(operation);
+            ViewBag.X = formX.ToString();
+            ViewBag.Y = formY.ToString();
             ViewBag.Operation = new SelectListItem[]
             {
                new SelectListItem() {  Value = "additional", Text = "Сложение" },
@@ -96,15 +73,45 @@ namespace calcWeb.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private string CalcEngine(string name)
+        {
+            double result = double.PositiveInfinity;
+
+            if (Checkerror(name)) return "Ошибка!";
+            else
+            {
+                x = formX;
+                y = formY;
+                result = Math.Round(TwoArgsEngine(name), 4);
+                if (result == double.NegativeInfinity)
+                {
+                    ox = x;
+                    result = Math.Round(OneArgEngine(name), 4);
+                    if (result == double.NegativeInfinity)
+                    {
+                        return "Ошибка!";
+                    }
+                }
+            }
+            return Convert.ToString(result);
+        }
+
+        private bool Checkerror(string name)
+        {
+            if ((name == "division" && formY == 0) || (name == "logxy" && (formX <= 0 || formY <= 0 || formX == 1)) || ((name == "ln" || name == "lg") && formX <= 0))
+            {
+                return true;
+            }
+            else if (name == "ctg" && OneArgEngine("sin") == 0) return true;
+            else if (name == "tg" && OneArgEngine("cos") == 0) return true;
+            else if (x == double.PositiveInfinity) return true;
+            else return false;
         }
     }
 }

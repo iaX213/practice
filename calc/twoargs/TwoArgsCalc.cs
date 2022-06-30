@@ -28,7 +28,7 @@ namespace calc {
                     Logxycalc logxy = new Logxycalc();
                     return logxy.Calculate(x, y);
                 default:
-                    throw new Exception("Ошибка! Неизвестное действие");
+                    return double.NegativeInfinity;
             }
         }
     }
